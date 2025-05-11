@@ -8,24 +8,24 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Quartz 4",
+    pageTitle: "netconfigs",
     pageTitleSuffix: "",
-    enableSPA: true,
+    enableSPA: true, 
     enablePopovers: true,
     analytics: {
-      provider: "plausible",
+      provider: null,
     },
     locale: "en-US",
-    baseUrl: "quartz.jzhao.xyz",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    baseUrl: "krissssz.ddns.net/wiki",
+    ignorePatterns: ["private", "- Templates", ".gitignore", ".obsidian"],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Schibsted Grotesk",
-        body: "Source Sans Pro",
-        code: "IBM Plex Mono",
+        header: "DM Sans", // Originial: Schibsted Grotesk, Good: Tomorrow
+        body: "Open Sans", // Original: Source Sans Pro
+        code: "JetBrains Mono", // Original: IBM Plex Mono
       },
       colors: {
         lightMode: {
@@ -69,7 +69,7 @@ const config: QuartzConfig = {
       Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: false }),
       Plugin.GitHubFlavoredMarkdown(),
       Plugin.TableOfContents(),
-      Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
+      Plugin.CrawlLinks({ markdownLinkResolution: "relative" }),
       Plugin.Description(),
       Plugin.Latex({ renderEngine: "katex" }),
     ],
@@ -89,7 +89,9 @@ const config: QuartzConfig = {
       Plugin.Favicon(),
       Plugin.NotFoundPage(),
       // Comment out CustomOgImages to speed up build time
-      Plugin.CustomOgImages(),
+      Plugin.CustomOgImages({
+	  colorScheme: "darkMode"
+	}),
     ],
   },
 }
